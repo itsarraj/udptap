@@ -1,0 +1,30 @@
+[package]
+name = "udptap"
+version = "0.1.0"
+edition = "2021"
+description = "A zero-daemon UDP tap and chaos proxy with duplex datagram inspection, packet drop, latency/jitter, duplication, corruption, and bandwidth throttling"
+license = "MIT"
+authors = ["Animesh Raj <animesh080808@gmail.com>"]
+repository = "https://github.com/itsarraj/udptap"
+readme = "README.md"
+keywords = ["udp", "proxy", "chaos-engineering", "networking", "tap"]
+categories = ["command-line-utilities", "network-programming", "development-tools"]
+
+[lib]
+name = "udptap"
+path = "src/lib.rs"
+
+[[bin]]
+name = "udptap"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+anyhow = "1"
+tokio = { version = "1", features = ["full"] }
+colored = "2"
+rand = "0.8"
+chrono = { version = "0.4", default-features = false, features = ["clock", "std"] }
+
+[dev-dependencies]
+tokio = { version = "1", features = ["full", "test-util"] }
